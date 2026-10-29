@@ -1,18 +1,22 @@
-import { BrowserRouter, Routes, Route } from "react-router"
-import { Login } from "./pages/Login"
-import { Home } from "./pages/Home"
-
+import { BrowserRouter, Route, Routes } from "react-router";
+import { Home } from "./pages/Home";
+import { Navbar } from "./components/Navbar";
+import { Footer } from "./components/Footer";
 
 function App() {
-  
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Home />}/>
-        <Route path="/login" element={<Login />}/>
-      </Routes>
-    </BrowserRouter>
-  )
+    <section className="min-h-screen flex flex-col">
+      <BrowserRouter>
+        <Navbar />
+        <main className="grow">
+          <Routes>
+            <Route path="/" element={<Home />} />
+          </Routes>
+        </main>
+        <Footer />
+      </BrowserRouter>
+    </section>
+  );
 }
 
-export default App
+export default App;
